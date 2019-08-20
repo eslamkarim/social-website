@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function getDashboard()
+    {
+        return view('dashboard');
+    }
     public function postSignUp (Request $request){
         $email = $request['email'];
         $first_name = $request['first_name'];
@@ -18,7 +22,7 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect()->back();
+        return redirect()->route('dashboard');
     }
     public function postSignIn (Request $request){
 
